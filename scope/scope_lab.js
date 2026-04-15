@@ -25,7 +25,15 @@ const functionConst = "I'm a block-scoped const";
 }
 show();
 
-console.log(functionVar); // Throws ReferenceError
-console.log(functionLet); // Throws ReferenceError
-console.log(functionConst); // Throws ReferenceError
+//console.log(functionVar); // Throws ReferenceError
+//console.log(functionLet); // Throws ReferenceError
+//console.log(functionConst); // Throws ReferenceError
 
+{
+    var varVar = "I'm a var variable";
+    let varLet = "I'm a let variable";
+    const varConst = "I'm a const variable";
+    varVar = "I'm a var variable, but I can be reassigned";
+     varLet = "I'm a let variable, but I can be reassigned"; // This will throw an error
+     varConst = "I'm a const variable, but I can be reassigned"; // This will throw an error  
+}
