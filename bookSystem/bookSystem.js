@@ -25,7 +25,7 @@ function showBooks(){
     if(bookContainer==null) {
         bookContainer.innerHTML = "<p>No se encontraron libros.</p>";
         return;}
-   bookContainer.innerHTML = books.map((b,index) => ` <h1> book number: ${index + 1}</h1> <p><strong> Book name: </strong>${b.bookName} <br> <strong>Author: </strong>${b.bookAuthor} <br> <strong>Description: </strong>${b.bookDescription} <br> <strong>Pages: </strong> ${b.pagesNumber}</p> <button onclick="editBook(${index})"> Edit </button>`).join('');
+   bookContainer.innerHTML = books.map((b,index) => ` <h1> book number: ${index + 1}</h1> <p><strong> Book name: </strong>${b.bookName} <br> <strong>Author: </strong>${b.bookAuthor} <br> <strong>Description: </strong>${b.bookDescription} <br> <strong>Pages: </strong> ${b.pagesNumber}</p> <button onclick="editBook(${index})"> Edit </button> <button onclick="deleteBook(${index})"> Delete </button>`).join('');
      
 }
 function clearInputs(){
@@ -40,6 +40,10 @@ function editBook(index){
     document.getElementById("authorName").value=book.bookAuthor;
     document.getElementById("bookDescription").value=book.bookDescription;
     document.getElementById("pagesNumber").value=book.pagesNumber;
+    books.splice(index,1);
+    showBooks();
+}
+function deleteBook(index){
     books.splice(index,1);
     showBooks();
 }
